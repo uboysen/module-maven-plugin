@@ -30,7 +30,11 @@ public class ModuleMojoExtensionExecution
 {
 	private final ModuleMojo mojo;
 
-	// For an extension, this should be the only constructor
+	/**
+	 * For an extension, this should be the only constructor.
+	 * 
+	 * @param mojo The mojo to extend.
+	 */
 	public ModuleMojoExtensionExecution(final ModuleMojo mojo)
 	{
 		this.mojo = mojo;
@@ -39,6 +43,11 @@ public class ModuleMojoExtensionExecution
 	/**
 	 * Searches the given file for java files and analysis them.
 	 * The method is recursive.
+	 *
+	 * @param file The file to start the analysis. Mostly a directory.
+	 * 
+	 * @throws MojoExecutionException Thrown if an IOException occurs on files 
+	 *                                or some rule is validated while strict is set to true on mojo.
 	 */
 	public void analysePath(final File file) throws MojoExecutionException
 	{
@@ -64,6 +73,14 @@ public class ModuleMojoExtensionExecution
 
 	/**
 	 * Reads a java file and creates a POJO with imports for it.
+	 *
+	 * @param name The name of the physical file.
+	 * @param absolutePath The absolute path to the file.
+	 * 
+	 * @return The corresponding POJO to the java file.
+	 * 
+	 * @throws MojoExecutionException Thrown if an IOException occurs while reading the file 
+	 *                                or some rule is validated while strict is set to true on mojo.
 	 */
 	protected JavaFile readJavaFile(final String name, final String absolutePath) throws MojoExecutionException
 	{
@@ -111,6 +128,10 @@ public class ModuleMojoExtensionExecution
 
 	/**
 	 * Creates a POJO Import for a given String. E.g: "import someting.else;"
+	 *
+	 * @param str The String from which to create the Import POJO.
+	 * 
+	 * @return The resulting Import POJO.
 	 */
 	protected Import createImport(final String str)
 	{
@@ -141,6 +162,10 @@ public class ModuleMojoExtensionExecution
 
 	/**
 	 * Analysis a given JavaFile (POJO) and checks relations for modules and 3rd party artefacts.
+	 *
+	 * @param javaFile A java file POJO.
+	 * 
+	 * @throws MojoExecutionException Thrown if some rule is validated while strict is set to true on mojo.
 	 */
 	protected void analyseJavaFile(final JavaFile javaFile) throws MojoExecutionException
 	{
@@ -173,6 +198,12 @@ public class ModuleMojoExtensionExecution
 
 	/**
 	 * Checks module relations for a given Import (POJO) and Set. The filename is for logging.
+	 *
+	 * @param imp An import POJO.
+	 * @param parentModuleNameSet A set of parent module names.
+	 * @param fileName Just for logging.
+	 * 
+	 * @throws MojoExecutionException Thrown if some rule is validated while strict is set to true on mojo.
 	 */
 	protected void checkModuleImport(final Import imp, final Set<String> parentModuleNameSet, final String fileName) throws MojoExecutionException
 	{
@@ -235,6 +266,12 @@ public class ModuleMojoExtensionExecution
 
 	/**
 	 * Checks 3rd party relations for a given Import (POJO) and a SET. The fileName is for logging.
+	 *
+	 * @param imp An import POJO.
+	 * @param parentModuleNameSet A Set of parent module names.
+	 * @param fileName Just for logging.
+	 * 
+	 * @throws MojoExecutionException Thrown if some rule is validated while strict is set to true on mojo.
 	 */
 	protected void check3rdPartyImport(final Import imp, final Set<String> parentModuleNameSet, final String fileName) throws MojoExecutionException
 	{
@@ -284,6 +321,10 @@ public class ModuleMojoExtensionExecution
 
 	/**
 	 * Logs a message or throws an exception depending on the strict parameter of the mojo.
+	 *
+	 * @param message The message to show.
+	 * 
+	 * @throws MojoExecutionException Thrown if strict is set to true on mojo.
 	 */
 	protected void showMessage(final String message) throws MojoExecutionException
 	{

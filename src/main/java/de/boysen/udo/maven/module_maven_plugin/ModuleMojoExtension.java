@@ -16,7 +16,11 @@ public class ModuleMojoExtension
 {
 	private final ModuleMojo mojo;
 
-	// For an extension, this should be the only constructor
+	/**
+	 * For an extension, this should be the only constructor.
+	 * 
+	 * @param mojo The mojo to extend.
+	 */
 	public ModuleMojoExtension(final ModuleMojo mojo)
 	{
 		this.mojo = mojo;
@@ -24,6 +28,8 @@ public class ModuleMojoExtension
 
 	/**
 	 * Checks if all parameter are valid.
+	 *
+	 * @throws MojoExecutionException Thrown if essential parameter are missing.
 	 */
 	public void checkParameter() throws MojoExecutionException
 	{

@@ -20,17 +20,33 @@ public class Import
 	private List<Module>	modules	= new ArrayList<>();
 	private boolean		isStatic;
 
+	/**
+	 * Constructs the import POJO for a given import string.
+	 * 
+	 * @param importStr The import string (e.g. 'something.else.or.more').
+	 */
 	public Import(final String importStr)
 	{
 		this.importStr = importStr;
 	}
 
+	/**
+	 * Constructs the import POJO for a given import string and static flag.
+	 * 
+	 * @param importStr The import string (e.g. 'something.else.or.more').
+	 * @param isStatic The static flag.
+	 */
 	public Import(final String importStr, final boolean isStatic)
 	{
 		this.importStr = importStr;
 		this.isStatic = isStatic;
 	}
 
+	/**
+	 * Constructs the import POJO for a given list of modules.
+	 * 
+	 * @param modules The list of modules.
+	 */
 	public Import(final List<Module> modules)
 	{
 		this.modules = modules;

@@ -58,7 +58,8 @@ public class ModuleMojo extends AbstractMojo
 	private List<Pattern>		defaultAllow3rdPartyPatternList		= null;
 	private List<Pattern>		defaultDisallow3rdPartyPatternList	= null;
 
-	/** Executing the Module Maven Plugin */
+	/* Executing the Module Maven Plugin */
+	@Override
 	public void execute() throws MojoExecutionException
 	{
 		final ModuleMojoExtension extension = new ModuleMojoExtension(this);
