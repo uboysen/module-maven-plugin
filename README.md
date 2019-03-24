@@ -255,3 +255,5 @@ If a more strict import is wanted a rule like
 	</rule>
 
 could be used.
+
+[License][LICENSE]
