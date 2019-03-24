@@ -256,4 +256,4 @@ If a more strict import is wanted a rule like
 
 could be used.
 
-[License][LICENSE]
+[License](LICENSE)
