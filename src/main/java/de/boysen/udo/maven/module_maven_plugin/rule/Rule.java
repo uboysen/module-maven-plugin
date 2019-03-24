@@ -28,11 +28,25 @@ public class Rule
 	private List<Pattern>		allowThirdPartyPatternList		= null;
 	private List<Pattern>		disallowThirdPartyPatternList	= null;
 
+	/**
+	 * Constructs a rule for module name.
+	 * 
+	 * @param module The module name.
+	 */
 	public Rule(final String module)
 	{
 		this.module = module;
 	}
 
+	/**
+	 * Constructs a rule for a given module name and rules for module and 3rd party relations as strings.
+	 * 
+	 * @param module The module name.
+	 * @param allowModule Allowed modules as comma separated string with braces (e.g. 'something(else),and,more')
+	 * @param disallowModule Disallowed modules as comma separated string with braces (e.g. 'something(else),and,more')
+	 * @param allow3rdParty Allowed 3rd party relations as a string (e.g. '*something*,*else*')
+	 * @param disallow3rdParty Disallowed 3rd party relations as a string (e.g. '*something*,*else*')
+	 */
 	public Rule(final String module, final String allowModule, final String disallowModule, final String allow3rdParty, final String disallow3rdParty)
 	{
 		this.module = module;

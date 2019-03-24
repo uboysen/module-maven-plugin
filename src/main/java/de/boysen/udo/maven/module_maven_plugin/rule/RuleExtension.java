@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
+import org.apache.commons.lang3.StringUtils;
+
 import de.boysen.udo.maven.module_maven_plugin.util.Util;
 
 /**
@@ -13,14 +15,18 @@ public class RuleExtension
 {
 	private final Rule rule;
 
-	// For an extension, this should be the only constructor
+	/**
+	 * For an extension, this should be the only constructor.
+	 * 
+	 * @param rule The rule to extend.
+	 */
 	public RuleExtension(final Rule rule)
 	{
 		this.rule = rule;
 	}
 
 	/**
-	 * Initializes internal parameter.
+	 * Initializes internal parameter of the given rule.
 	 */
 	public void initRule()
 	{
@@ -35,6 +41,10 @@ public class RuleExtension
 
 	/**
 	 * Checks if the given rule applies to the given set of module names.
+	 *
+	 * @param nameSet A set of module names.
+	 * 
+	 * @return True if the given rule applies to one of the given modules.
 	 */
 	public boolean ruleApplies(final Set<String> nameSet)
 	{
@@ -47,7 +57,7 @@ public class RuleExtension
 				boolean subListResult = true;
 				for (String name : subList)
 				{
-					if (!nameSet.contains(name))
+					if (!nameSet.contains(StringUtils.lowerCase(name)))
 					{
 						subListResult = false;
 					}
@@ -72,6 +82,10 @@ public class RuleExtension
 	 *        ("a", "g", "h", "i"),
 	 *        ("a", "g", "h", "j"),
 	 *        ("k"))
+	 *
+	 * @param str A String with braces and commas (See the description of the method).
+	 * 
+	 * @return A list of list of strings (See the description of the method).
 	 */
 	public List<List<String>> createCheckArray(final String str)
 	{

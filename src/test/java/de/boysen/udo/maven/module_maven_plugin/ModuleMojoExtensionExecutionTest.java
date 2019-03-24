@@ -22,10 +22,10 @@ import de.boysen.udo.maven.module_maven_plugin.module.ModuleExtension;
 import de.boysen.udo.maven.module_maven_plugin.rule.Rule;
 import de.boysen.udo.maven.module_maven_plugin.rule.RuleExtension;
 
-/** @see de.boysen.udo.maven.module_maven_plugin.ModuleMojoExtensionExecution */
+/** @link de.boysen.udo.maven.module_maven_plugin.ModuleMojoExtensionExecution */
 public class ModuleMojoExtensionExecutionTest
 {
-	/** @see de.boysen.udo.maven.module_maven_plugin.ModuleMojoExtensionExecution#analysePath(java.io.File) */
+	/** @link de.boysen.udo.maven.module_maven_plugin.ModuleMojoExtensionExecution#analysePath(java.io.File) */
 	@Test
 	public void testAnalysePath()
 	{
@@ -63,7 +63,7 @@ public class ModuleMojoExtensionExecutionTest
 		Assertions.assertThat(thrown).doesNotThrowAnyException();
 	}
 
-	/** @see de.boysen.udo.maven.module_maven_plugin.ModuleMojoExtensionExecution#readJavaFile(String, String) */
+	/** @link de.boysen.udo.maven.module_maven_plugin.ModuleMojoExtensionExecution#readJavaFile(String, String) */
 	@Test
 	public void testReadJavaFile()
 	{
@@ -91,7 +91,7 @@ public class ModuleMojoExtensionExecutionTest
 		Assertions.assertThat(thrown).isInstanceOf(MojoExecutionException.class);
 	}
 
-	/** @see de.boysen.udo.maven.module_maven_plugin.ModuleMojoExtensionExecution#createImport(String) */
+	/** @link de.boysen.udo.maven.module_maven_plugin.ModuleMojoExtensionExecution#createImport(String) */
 	@Test
 	public void testCreateImport()
 	{
@@ -105,7 +105,7 @@ public class ModuleMojoExtensionExecutionTest
 
 	}
 
-	/** @see de.boysen.udo.maven.module_maven_plugin.ModuleMojoExtensionExecution#analyseJavaFile(de.boysen.udo.maven.module_maven_plugin.model.JavaFile) */
+	/** @link de.boysen.udo.maven.module_maven_plugin.ModuleMojoExtensionExecution#analyseJavaFile(de.boysen.udo.maven.module_maven_plugin.model.JavaFile) */
 	@ParameterizedTest
 	@MethodSource("testAnalyseJavaFileParams")
 	public void testAnalyseJavaFile(final JavaFile javaFile, final boolean allowAsteriks, final boolean allowStatic)
@@ -141,7 +141,7 @@ public class ModuleMojoExtensionExecutionTest
 		// @formatter:on
 	}
 
-	/** @see de.boysen.udo.maven.module_maven_plugin.ModuleMojoExtensionExecution#checkModuleImport(Import, java.util.Set, String) */
+	/** @link de.boysen.udo.maven.module_maven_plugin.ModuleMojoExtensionExecution#checkModuleImport(Import, java.util.Set, String) */
 	@ParameterizedTest
 	@MethodSource("testCheckModuleImportParams")
 	public void testCheckModuleImport(final boolean positiveTest, final List<Rule> rules, final String defaultAllow, final Import imp)
@@ -188,7 +188,7 @@ public class ModuleMojoExtensionExecutionTest
 		// @formatter:on
 	}
 
-	/** @see de.boysen.udo.maven.module_maven_plugin.ModuleMojoExtensionExecution#check3rdPartyImport(Import, java.util.Set, String) */
+	/** @link de.boysen.udo.maven.module_maven_plugin.ModuleMojoExtensionExecution#check3rdPartyImport(Import, java.util.Set, String) */
 	@ParameterizedTest
 	@MethodSource("testCheck3rdPartyImportParams")
 	public void testCheck3rdPartyImport(final String defaultAllow, final String defaultDisallow, final List<Rule> rules, final Import imp)
@@ -228,7 +228,7 @@ public class ModuleMojoExtensionExecutionTest
 		// @formatter:on
 	}
 
-	/** @see de.boysen.udo.maven.module_maven_plugin.ModuleMojoExtensionExecution#showMessage(String) */
+	/** @link de.boysen.udo.maven.module_maven_plugin.ModuleMojoExtensionExecution#showMessage(String) */
 	@Test
 	public void testShowMessage()
 	{

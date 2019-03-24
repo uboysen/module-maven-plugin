@@ -20,11 +20,22 @@ public class Module
 	// Initialized by MOJO
 	private List<Pattern>	patternList	= null;
 
+	/**
+	 * Constructs a module for a given name.
+	 * 
+	 * @param name The name of the module.
+	 */
 	public Module(final String name)
 	{
 		this.name = name;
 	}
 
+	/**
+	 * Constructs a module for a given name and packages.
+	 * 
+	 * @param name The name of the module.
+	 * @param packages The packages of the module as comma separated string.
+	 */
 	public Module(final String name, final String packages)
 	{
 		this.name = name;

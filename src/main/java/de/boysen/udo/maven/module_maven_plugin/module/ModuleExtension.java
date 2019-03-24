@@ -9,6 +9,11 @@ public class ModuleExtension
 {
 	private final Module module;
 
+	/**
+	 * For an extension, this should be the only constructor.
+	 * 
+	 * @param module The module to extend.
+	 */
 	public ModuleExtension(final Module module)
 	{
 		this.module = module;

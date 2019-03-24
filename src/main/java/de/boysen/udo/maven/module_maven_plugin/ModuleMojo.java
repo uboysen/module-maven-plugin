@@ -24,8 +24,11 @@ import lombok.EqualsAndHashCode;
 @EqualsAndHashCode(callSuper = false)
 public class ModuleMojo extends AbstractMojo
 {
+	/** Default allow of imports from own package. */
 	public static final String	DEFAULTALLOW_OWN							= "OWN";
+	/** No module is allowed for import. */
 	public static final String	DEFAULTALLOW_NONE							= "NONE";
+	/** All modules are allowed for import. */
 	public static final String	DEFAULTALLOW_ALL							= "ALL";
 
 	@Parameter(readonly = true, required = false)

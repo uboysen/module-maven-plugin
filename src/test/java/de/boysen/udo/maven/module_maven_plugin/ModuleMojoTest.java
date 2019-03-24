@@ -12,10 +12,10 @@ import de.boysen.udo.maven.module_maven_plugin.module.ModuleExtension;
 import de.boysen.udo.maven.module_maven_plugin.rule.Rule;
 import de.boysen.udo.maven.module_maven_plugin.rule.RuleExtension;
 
-/** @see de.boysen.udo.maven.module_maven_plugin.ModuleMojo */
+/** @link de.boysen.udo.maven.module_maven_plugin.ModuleMojo */
 public class ModuleMojoTest
 {
-	/** @see de.boysen.udo.maven.module_maven_plugin.ModuleMojo#execute() */
+	/** @link de.boysen.udo.maven.module_maven_plugin.ModuleMojo#execute() */
 	@Test
 	public void testExecute() throws MojoExecutionException
 	{

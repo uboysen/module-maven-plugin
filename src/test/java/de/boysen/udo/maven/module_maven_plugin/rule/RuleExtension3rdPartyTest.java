@@ -9,10 +9,10 @@ import org.junit.jupiter.params.provider.MethodSource;
 
 import de.boysen.udo.maven.module_maven_plugin.model.Import;
 
-/** @see de.boysen.udo.maven.module_maven_plugin.rule.RuleExtension3rdParty */
+/** @link de.boysen.udo.maven.module_maven_plugin.rule.RuleExtension3rdParty */
 public class RuleExtension3rdPartyTest
 {
-	/** @see de.boysen.udo.maven.module_maven_plugin.rule.RuleExtension3rdParty#is3rdPartyImportAllowed(de.boysen.udo.maven.module_maven_plugin.model.Import) */
+	/** @link de.boysen.udo.maven.module_maven_plugin.rule.RuleExtension3rdParty#is3rdPartyImportAllowed(de.boysen.udo.maven.module_maven_plugin.model.Import) */
 	@ParameterizedTest
 	@MethodSource("testIs3rdPartyImportAllowedParams")
 	public void testIs3rdPartyImportAllowed(final Rule rule, final boolean expected, final Import imp)
@@ -29,6 +29,9 @@ public class RuleExtension3rdPartyTest
 		// @formatter:off
 		return Stream.of(
 				Arguments.of(new Rule(null, null, null, "something*", null), true, new Import("something.and.more")),
+				Arguments.of(new Rule(null, null, null, "something*", null), true, new Import("SoMeThinG.and.more")),
+				Arguments.of(new Rule(null, null, null, "SOMETHING*", null), true, new Import("something.and.more")),
+				Arguments.of(new Rule(null, null, null, "SoMeTHing*", null), true, new Import("sOmeTHing.and.more")),
 				Arguments.of(new Rule(null, null, null, "some*", null), true, new Import("something.and.more")),
 				Arguments.of(new Rule(null, null, null, "*and*", null), true, new Import("something.and.more")),
 				Arguments.of(new Rule(null, null, null, "*and*,nothing", null), true, new Import("something.and.more")),
@@ -42,7 +45,7 @@ public class RuleExtension3rdPartyTest
 		// @formatter:on
 	}
 
-	/** @see de.boysen.udo.maven.module_maven_plugin.rule.RuleExtension3rdParty#is3rdPartyImportDisallowed(Import) */
+	/** @link de.boysen.udo.maven.module_maven_plugin.rule.RuleExtension3rdParty#is3rdPartyImportDisallowed(Import) */
 	@ParameterizedTest
 	@MethodSource("testIs3rdPartyImportDisallowedParams")
 	public void testIs3rdPartyImportDisallowed(final Rule rule, final boolean expected, final Import imp)
@@ -60,6 +63,7 @@ public class RuleExtension3rdPartyTest
 		return Stream.of(
 				Arguments.of(new Rule(null, null, null, null, "something*"), true, new Import("something.and.more")),
 				Arguments.of(new Rule(null, null, null, null, "some*"), true, new Import("something.and.more")),
+				Arguments.of(new Rule(null, null, null, null, "SOme*"), true, new Import("soMEthing.and.more")),
 				Arguments.of(new Rule(null, null, null, null, "*and*"), true, new Import("something.and.more")),
 				Arguments.of(new Rule(null, null, null, null, "*and*,nothing"), true, new Import("something.and.more")),
 				

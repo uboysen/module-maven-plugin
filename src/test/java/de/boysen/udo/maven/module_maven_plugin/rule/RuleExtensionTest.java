@@ -12,10 +12,10 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 
-/** @see de.boysen.udo.maven.module_maven_plugin.rule.RuleExtension */
+/** @link de.boysen.udo.maven.module_maven_plugin.rule.RuleExtension */
 public class RuleExtensionTest
 {
-	/** @see de.boysen.udo.maven.module_maven_plugin.rule.RuleExtension#ruleApplies(java.util.Set) */
+	/** @link de.boysen.udo.maven.module_maven_plugin.rule.RuleExtension#ruleApplies(java.util.Set) */
 	@ParameterizedTest
 	@MethodSource("testRuleAppliesParams")
 	public void testRuleApplies(final Rule rule, final boolean expected, final Set<String> nameSet)
@@ -43,7 +43,7 @@ public class RuleExtensionTest
 		// @formatter:on
 	}
 
-	/** @see de.boysen.udo.maven.module_maven_plugin.rule.RuleExtension#createCheckArray(String) */
+	/** @link de.boysen.udo.maven.module_maven_plugin.rule.RuleExtension#createCheckArray(String) */
 	@ParameterizedTest
 	@MethodSource("testCreateCheckArraysParams")
 	public void testCreateCheckArrays(final boolean positiveTest, final String allowedStr, final List<List<String>> expectedArray)

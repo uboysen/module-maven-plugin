@@ -172,7 +172,7 @@ public class ModuleMojoExtensionExecution
 		Set<String> parentModuleNameSet = new HashSet<String>();
 		for (Module module : javaFile.getParentModules())
 		{
-			parentModuleNameSet.add(module.getName());
+			parentModuleNameSet.add(StringUtils.lowerCase(module.getName()));
 		}
 
 		for (Import imp : javaFile.getImports())

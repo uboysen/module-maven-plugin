@@ -10,10 +10,10 @@ import org.junit.jupiter.api.Test;
 import de.boysen.udo.maven.module_maven_plugin.module.Module;
 import de.boysen.udo.maven.module_maven_plugin.rule.Rule;
 
-/** @see de.boysen.udo.maven.module_maven_plugin.ModuleMojoExtension */
+/** @link de.boysen.udo.maven.module_maven_plugin.ModuleMojoExtension */
 public class ModuleMojoExtensionTest
 {
-	/** @see de.boysen.udo.maven.module_maven_plugin.ModuleMojoExtension#checkParameter() */
+	/** @link de.boysen.udo.maven.module_maven_plugin.ModuleMojoExtension#checkParameter() */
 	@Test
 	public void testCheckParameter()
 	{

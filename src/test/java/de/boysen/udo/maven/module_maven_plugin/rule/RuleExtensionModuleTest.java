@@ -11,10 +11,10 @@ import org.junit.jupiter.params.provider.MethodSource;
 import de.boysen.udo.maven.module_maven_plugin.model.Import;
 import de.boysen.udo.maven.module_maven_plugin.module.Module;
 
-/** @see de.boysen.udo.maven.module_maven_plugin.rule.RuleExtensionModule */
+/** @link de.boysen.udo.maven.module_maven_plugin.rule.RuleExtensionModule */
 public class RuleExtensionModuleTest
 {
-	/** @see de.boysen.udo.maven.module_maven_plugin.rule.RuleExtensionModule#isModuleImportAllowed(Import) */
+	/** @link de.boysen.udo.maven.module_maven_plugin.rule.RuleExtensionModule#isModuleImportAllowed(Import) */
 	@ParameterizedTest
 	@MethodSource("testIsModuleImportAllowedParams")
 	public void testIsModuleImportAllowed(final Rule rule, final boolean expected, final Import imp)
@@ -31,6 +31,7 @@ public class RuleExtensionModuleTest
 		// @formatter:off
 		return Stream.of(
 				Arguments.of(new Rule(null, "something", null, null, null), true, new Import(Arrays.asList(new Module("something")))),
+				Arguments.of(new Rule(null, "Something", null, null, null), true, new Import(Arrays.asList(new Module("somethinG")))),
 				Arguments.of(new Rule(null, "something(else)", null, null, null), true, new Import(Arrays.asList(new Module("something"), new Module("else")))),
 				Arguments.of(new Rule(null, "something,else", null, null, null), true, new Import(Arrays.asList(new Module("something"), new Module("nothing")))),
 				
@@ -44,7 +45,7 @@ public class RuleExtensionModuleTest
 		// @formatter:on
 	}
 
-	/** @see de.boysen.udo.maven.module_maven_plugin.rule.RuleExtensionModule#isModuleImportDisallowed(Import) */
+	/** @link de.boysen.udo.maven.module_maven_plugin.rule.RuleExtensionModule#isModuleImportDisallowed(Import) */
 	@ParameterizedTest
 	@MethodSource("testIsModuleImportDisallowedParams")
 	public void testIsModuleImportDisallowed(final Rule rule, final boolean expected, final Import imp)
@@ -61,6 +62,7 @@ public class RuleExtensionModuleTest
 		// @formatter:off
 		return Stream.of(
 				Arguments.of(new Rule(null, null, "something", null, null), true, new Import(Arrays.asList(new Module("something")))),
+				Arguments.of(new Rule(null, null, "SOMethinG", null, null), true, new Import(Arrays.asList(new Module("somETHinG")))),
 				Arguments.of(new Rule(null, null, "something(else)", null, null), true, new Import(Arrays.asList(new Module("something"), new Module("else")))),
 				Arguments.of(new Rule(null, null, "something,else", null, null), true, new Import(Arrays.asList(new Module("something"), new Module("nothing")))),
 				

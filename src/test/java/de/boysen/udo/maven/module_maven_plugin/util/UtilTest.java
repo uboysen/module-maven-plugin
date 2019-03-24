@@ -17,10 +17,10 @@ import de.boysen.udo.maven.module_maven_plugin.model.Import;
 import de.boysen.udo.maven.module_maven_plugin.module.Module;
 import de.boysen.udo.maven.module_maven_plugin.module.ModuleExtension;
 
-/** @see de.boysen.udo.maven.module_maven_plugin.util.Util */
+/** @link de.boysen.udo.maven.module_maven_plugin.util.Util */
 public class UtilTest
 {
-	/** @see de.boysen.udo.maven.module_maven_plugin.util.Util#createPatternList(String) */
+	/** @link de.boysen.udo.maven.module_maven_plugin.util.Util#createPatternList(String) */
 	@ParameterizedTest
 	@MethodSource("testCreatePatternListParams")
 	public void testCreatePatternList(final String str, final List<Pattern> expected)
@@ -43,17 +43,17 @@ public class UtilTest
 	{
 		// @formatter:off
 		return Stream.of(
-				Arguments.of("*something*", Arrays.asList(Pattern.compile(".*something.*"))),
-				Arguments.of("*something", Arrays.asList(Pattern.compile(".*something"))),
-				Arguments.of("som*ethi*ng*", Arrays.asList(Pattern.compile("som.*ethi.*ng.*"))),
-				Arguments.of("*something*,*else,and*more", Arrays.asList(Pattern.compile(".*something.*"), Pattern.compile(".*else"), Pattern.compile("and.*more"))),
+				Arguments.of("*something*", Arrays.asList(Pattern.compile("(?i:.*something.*)"))),
+				Arguments.of("*something", Arrays.asList(Pattern.compile("(?i:.*something)"))),
+				Arguments.of("som*ethi*ng*", Arrays.asList(Pattern.compile("(?i:som.*ethi.*ng.*)"))),
+				Arguments.of("*something*,*else,and*more", Arrays.asList(Pattern.compile("(?i:.*something.*)"), Pattern.compile("(?i:.*else)"), Pattern.compile("(?i:and.*more)"))),
 				
 				Arguments.of("", null),
 				Arguments.of(null, null)); 
 		// @formatter:on
 	}
 
-	/** @see de.boysen.udo.maven.module_maven_plugin.util.Util#somethingInPatternListMatches(String, List) */
+	/** @link de.boysen.udo.maven.module_maven_plugin.util.Util#somethingInPatternListMatches(String, List) */
 	@ParameterizedTest
 	@MethodSource("testSomethingInPatternListMatchesParams")
 	public void testSomethingInPatternListMatches(final boolean expected, final String str, final List<Pattern> patternList)
@@ -66,17 +66,17 @@ public class UtilTest
 	{
 		// @formatter:off
 		return Stream.of(
-				Arguments.of(true, "irgendwas.something.else", Arrays.asList(Pattern.compile(".*something.*"))),
-				Arguments.of(true, "irgendwas.something.else", Arrays.asList(Pattern.compile(".*something.*"), Pattern.compile(".*nothing.*"))),
+				Arguments.of(true, "irgendwas.something.else", Arrays.asList(Pattern.compile("(?i:.*something.*)"))),
+				Arguments.of(true, "irgendwas.something.else", Arrays.asList(Pattern.compile("(?i:.*something.*)"), Pattern.compile("(?i:.*nothing.*)"))),
 				
-				Arguments.of(false, "irgendwas.something.else", Arrays.asList(Pattern.compile(".*nothing.*"))),
-				Arguments.of(false, null, Arrays.asList(Pattern.compile(".*something.*"))),
+				Arguments.of(false, "irgendwas.something.else", Arrays.asList(Pattern.compile("(?i:.*nothing.*)"))),
+				Arguments.of(false, null, Arrays.asList(Pattern.compile("(?i:.*something.*)"))),
 				Arguments.of(false, "irgendwas.something.else", null),
 				Arguments.of(false, null, null)); 
 		// @formatter:on
 	}
 
-	/** @see de.boysen.udo.maven.module_maven_plugin.util.Util#isImportFromOwnModule(Import, Set) */
+	/** @link de.boysen.udo.maven.module_maven_plugin.util.Util#isImportFromOwnModule(Import, Set) */
 	@ParameterizedTest
 	@MethodSource("testIsImportFromOwnModuleParams")
 	public void testIsImportFromOwnModule(final Import imp, final Set<String> parentModuleNameSet, final Boolean result)
@@ -96,7 +96,7 @@ public class UtilTest
 		// @formatter:on
 	}
 
-	/** @see de.boysen.udo.maven.module_maven_plugin.util.Util#getModulesForStr(List, String) */
+	/** @link de.boysen.udo.maven.module_maven_plugin.util.Util#getModulesForStr(List, String) */
 	@ParameterizedTest
 	@MethodSource("testGetModulesForStrParams")
 	public void testGetModulesForStr(final boolean positiveTest, final List<Module> modules, final String str, final List<Module> result)
@@ -132,7 +132,7 @@ public class UtilTest
 	   // @formatter:on
 	}
 
-	/** @see de.boysen.udo.maven.module_maven_plugin.util.Util#startsWithCommentOrAnnotation(String) */
+	/** @link de.boysen.udo.maven.module_maven_plugin.util.Util#startsWithCommentOrAnnotation(String) */
 	@Test
 	public void testStartsWithCommentOrAnnotation()
 	{
@@ -146,7 +146,7 @@ public class UtilTest
 		Assertions.assertThat(Util.startsWithCommentOrAnnotation("package anywhere.or.else; //And a comment")).isFalse();
 	}
 
-	/** @see de.boysen.udo.maven.module_maven_plugin.util.Util#removeComments(String) */
+	/** @link de.boysen.udo.maven.module_maven_plugin.util.Util#removeComments(String) */
 	@Test
 	public void testRemoveComments()
 	{
