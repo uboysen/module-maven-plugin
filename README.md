@@ -1,10 +1,10 @@
-#Module Maven Plugin
+# Module Maven Plugin
 
 A Maven plugin for checking relations of defined modules and 3rd party artefacts.
 
 The target is to make sure that a defined archtecture will be kept.
 
-##Usage
+## Usage
 
 To use the plugin, clone or download this project and install it with:
 
