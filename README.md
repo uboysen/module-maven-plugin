@@ -94,11 +94,11 @@ The order of rules is important. Also the order of the parts in the rules is imp
 
 ------------------------------------------
 
-##Examples
+## Examples
 
 Here are two common examples for architectures to check with this plugin.
 
-###A simple layer architecture
+### A simple layer architecture
 
 Consider an architecture with two layer and an interface:
 
@@ -155,7 +155,7 @@ The plugin definition could be:
 			</plugin>
 			...
 
-###A complex layer architecture
+### A complex layer architecture
 
 Imagine a 3 layer architecture with 'user', 'shop' and 'site' modules in every layer. The user layer is specialized for administration.
 
